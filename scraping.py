@@ -40,12 +40,11 @@ def get_french_writers():
 # Appele la fonction get_french_writers() pour obtenir la liste d'écrivains
 writers_list = get_french_writers()
 
-#raccourci la liste
-writers_list = writers_list[:8]
-
 # Affiche la liste des écrivains
 print(writers_list)
 
+#raccourci la liste
+writers_list = writers_list[:8]
 
 
 ##code de Valentine
@@ -132,7 +131,6 @@ for auteur in writers_list: #on utilise la liste des auteurs récupérée sur wi
                 urls.append(url.get_attribute("href")) #on récupère le lien dans l'attribut et on l'ajoute à la liste de liens
             driver.find_element(By.XPATH, '//*[@id="page_corps"]/div/div[3]/div[2]/div[2]/a[last()]').click() #on change de page
 
-# print(urls)
 
 
 
@@ -164,18 +162,13 @@ for url in urls:
     livres.append(livre)
 
     # Affichage de la liste livres
-# print(livres)
 
 
 ## Ajout dans fichier Excel (code de Valentine)
 import csv
-import pandas as pd
 
 
-with open("donnees_livres.csv", "w", newline='') as f:
-    writer =csv.writer(f, delimiter=',')
+with open("donnees2_livres.csv", "w", newline='') as f:
+    writer =csv.writer(f)
     writer.writerow(['Titre', 'Auteur', 'Note/5'])
     writer.writerows(livres)
-
-
-
